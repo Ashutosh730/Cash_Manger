@@ -5,15 +5,16 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity{
 
-    private EditText twothou,fivehun,twohun,onehun,fifty,twenty,ten,five,two,one,notes,total;
-    private  EditText res2000,res500,res200,res100,res50,res20,res10,res5,res2,res1;
+    private EditText twothou,fivehun,twohun,onehun,fifty,twenty,ten,five,two,one;
+    private TextView res2000,res500,res200,res100,res50,res20,res10,res5,res2,res1,notes,total;
     private Button save;
-    private  long count=0,grand;
+    private  int count=0,grand=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,8 +50,16 @@ public class MainActivity extends AppCompatActivity{
 
 
         twothou.addTextChangedListener(new TextWatcher() {
+
+            int value,lcount=0,lgrand=0;
+            String sValue,sCount,sGrand;
+
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                res2000.setText("");
+                notes.setText("");
+                total.setText("");
 
             }
 
@@ -59,15 +68,16 @@ public class MainActivity extends AppCompatActivity{
 
                 try {
 
-                    long value=2000*Integer.parseInt(twothou.getText().toString());
-                    String sValue=Long.toString(value);
+                    value=2000*Integer.parseInt(twothou.getText().toString());
+                    sValue=Long.toString(value);
                     res2000.setText(sValue);
-                    count+=Integer.parseInt(twothou.getText().toString());
-                    String sCount=Long.toString(count);
+                    lcount=Integer.parseInt(twothou.getText().toString());
+                    sCount=Long.toString(lcount);
                     notes.setText(sCount);
-                    grand+=value;
-                    String sGrand=Long.toString(grand);
+                    lgrand=value;
+                    sGrand=Long.toString(lgrand);
                     total.setText(sGrand);
+
 
                 } catch (NumberFormatException e) {
                     e.printStackTrace();
@@ -78,7 +88,518 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void afterTextChanged(Editable editable) {
 
+                count+=lcount;
+                grand+=lgrand;
+                try {
+
+                    notes.setText(count);
+                    total.setText(grand);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
             }
+
+
+        });
+
+
+
+        fivehun.addTextChangedListener(new TextWatcher() {
+
+            int value,lcount=0,lgrand=0;
+            String sValue,sCount,sGrand;
+
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                res500.setText("");
+                notes.setText("");
+                total.setText("");
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                try {
+
+                    value=500*Integer.parseInt(fivehun.getText().toString());
+                    sValue=Long.toString(value);
+                    res500.setText(sValue);
+                    lcount=Integer.parseInt(fivehun.getText().toString());
+                    sCount=Long.toString(lcount);
+                    notes.setText(sCount);
+                    lgrand=value;
+                    sGrand=Long.toString(lgrand);
+                    total.setText(sGrand);
+
+
+                } catch (NumberFormatException e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+                count+=lcount;
+                grand+=lgrand;
+
+                try {
+
+                    notes.setText(count);
+                    total.setText(grand);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        });
+
+        twohun.addTextChangedListener(new TextWatcher() {
+
+            int value,lcount=0,lgrand=0;
+            String sValue,sCount,sGrand;
+
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                res200.setText("");
+                notes.setText("");
+                total.setText("");
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                try {
+
+                    value=200*Integer.parseInt(twohun.getText().toString());
+                    sValue=Long.toString(value);
+                    res200.setText(sValue);
+                    lcount=Integer.parseInt(twohun.getText().toString());
+                    sCount=Long.toString(lcount);
+                    notes.setText(sCount);
+                    lgrand=value;
+                    sGrand=Long.toString(lgrand);
+                    total.setText(sGrand);
+
+
+                } catch (NumberFormatException e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+                count+=lcount;
+                grand+=lgrand;
+                try {
+
+                    notes.setText(count);
+                    total.setText(grand);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+
+        });
+
+        onehun.addTextChangedListener(new TextWatcher() {
+
+            int value,lcount=0,lgrand=0;
+            String sValue,sCount,sGrand;
+
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                res100.setText("");
+                notes.setText("");
+                total.setText("");
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                try {
+
+                    value=100*Integer.parseInt(onehun.getText().toString());
+                    sValue=Long.toString(value);
+                    res100.setText(sValue);
+                    lcount=Integer.parseInt(onehun.getText().toString());
+                    sCount=Long.toString(lcount);
+                    notes.setText(sCount);
+                    lgrand=value;
+                    sGrand=Long.toString(lgrand);
+                    total.setText(sGrand);
+
+
+                } catch (NumberFormatException e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+                count+=lcount;
+                grand+=lgrand;
+                try {
+
+                    notes.setText(count);
+                    total.setText(grand);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+
+        });
+
+        fifty.addTextChangedListener(new TextWatcher() {
+
+            int value,lcount=0,lgrand=0;
+            String sValue,sCount,sGrand;
+
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                res50.setText("");
+                notes.setText("");
+                total.setText("");
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                try {
+
+                    value=50*Integer.parseInt(fifty.getText().toString());
+                    sValue=Long.toString(value);
+                    res50.setText(sValue);
+                    lcount=Integer.parseInt(fifty.getText().toString());
+                    sCount=Long.toString(lcount);
+                    notes.setText(sCount);
+                    lgrand=value;
+                    sGrand=Long.toString(lgrand);
+                    total.setText(sGrand);
+
+
+                } catch (NumberFormatException e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+                count+=lcount;
+                grand+=lgrand;
+                try {
+
+                    notes.setText(count);
+                    total.setText(grand);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+
+        });
+
+        twenty.addTextChangedListener(new TextWatcher() {
+
+            int value,lcount=0,lgrand=0;
+            String sValue,sCount,sGrand;
+
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                res20.setText("");
+                notes.setText("");
+                total.setText("");
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                try {
+
+                    value=20*Integer.parseInt(twenty.getText().toString());
+                    sValue=Long.toString(value);
+                    res20.setText(sValue);
+                    lcount=Integer.parseInt(twenty.getText().toString());
+                    sCount=Long.toString(lcount);
+                    notes.setText(sCount);
+                    lgrand=value;
+                    sGrand=Long.toString(lgrand);
+                    total.setText(sGrand);
+
+
+                } catch (NumberFormatException e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+                count+=lcount;
+                grand+=lgrand;
+                try {
+
+                    notes.setText(count);
+                    total.setText(grand);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+
+        });
+
+        ten.addTextChangedListener(new TextWatcher() {
+
+            int value,lcount=0,lgrand=0;
+            String sValue,sCount,sGrand;
+
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                res10.setText("");
+                notes.setText("");
+                total.setText("");
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                try {
+
+                    value=10*Integer.parseInt(ten.getText().toString());
+                    sValue=Long.toString(value);
+                    res10.setText(sValue);
+                    lcount=Integer.parseInt(ten.getText().toString());
+                    sCount=Long.toString(lcount);
+                    notes.setText(sCount);
+                    lgrand=value;
+                    sGrand=Long.toString(lgrand);
+                    total.setText(sGrand);
+
+
+                } catch (NumberFormatException e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+                count+=lcount;
+                grand+=lgrand;
+                try {
+
+                    notes.setText(count);
+                    total.setText(grand);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+
+        });
+
+        five.addTextChangedListener(new TextWatcher() {
+
+            int value,lcount=0,lgrand=0;
+            String sValue,sCount,sGrand;
+
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                res5.setText("");
+                notes.setText("");
+                total.setText("");
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                try {
+
+                    value=5*Integer.parseInt(five.getText().toString());
+                    sValue=Long.toString(value);
+                    res5.setText(sValue);
+                    lcount=Integer.parseInt(five.getText().toString());
+                    sCount=Long.toString(lcount);
+                    notes.setText(sCount);
+                    lgrand=value;
+                    sGrand=Long.toString(lgrand);
+                    total.setText(sGrand);
+
+
+                } catch (NumberFormatException e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+                count+=lcount;
+                grand+=lgrand;
+                try {
+
+                    notes.setText(count);
+                    total.setText(grand);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+
+        });
+
+
+        two.addTextChangedListener(new TextWatcher() {
+
+            int value,lcount=0,lgrand=0;
+            String sValue,sCount,sGrand;
+
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                res2.setText("");
+                notes.setText("");
+                total.setText("");
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                try {
+
+                    value=2*Integer.parseInt(two.getText().toString());
+                    sValue=Long.toString(value);
+                    res2.setText(sValue);
+                    lcount=Integer.parseInt(two.getText().toString());
+                    sCount=Long.toString(lcount);
+                    notes.setText(sCount);
+                    lgrand=value;
+                    sGrand=Long.toString(lgrand);
+                    total.setText(sGrand);
+
+
+                } catch (NumberFormatException e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+                count+=lcount;
+                grand+=lgrand;
+                try {
+
+                    notes.setText(count);
+                    total.setText(grand);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+
+        });
+
+        one.addTextChangedListener(new TextWatcher() {
+
+            int value,lcount=0,lgrand=0;
+            String sValue,sCount,sGrand;
+
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                res1.setText("");
+                notes.setText("");
+                total.setText("");
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                try {
+
+                    value=Integer.parseInt(one.getText().toString());
+                    sValue=Long.toString(value);
+                    res1.setText(sValue);
+                    lcount=Integer.parseInt(one.getText().toString());
+                    sCount=Long.toString(lcount);
+                    notes.setText(sCount);
+                    lgrand=value;
+                    sGrand=Long.toString(lgrand);
+                    total.setText(sGrand);
+
+
+                } catch (NumberFormatException e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+                count+=lcount;
+                grand+=lgrand;
+                try {
+
+                    notes.setText(count);
+                    total.setText(grand);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+
         });
 
 
